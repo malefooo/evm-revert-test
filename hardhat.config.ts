@@ -8,14 +8,9 @@ module.exports = {
   networks: {
     hardhat: {
     },
-    main: {
-      url: "https://prod-mainnet.prod.findora.org:8545",
-      chainId:2152,
-      accounts: [mnemonic]
-    },
-    mock: {
-      url: "https://dev-mainnetmock.dev.findora.org:8545",
-      chainId:2152,
+    temp: {
+      url: "http://35.82.32.167:8545",
+      chainId:523,
       accounts: [mnemonic]
     }
   },
