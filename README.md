@@ -1,5 +1,10 @@
 # evm-revert-test
 
+### 安装依赖
+```
+npm install
+```
+
 ### 配置环境
 hardhat.config.ts 中按规则配置需要的测试环境
 
