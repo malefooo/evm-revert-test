@@ -12,17 +12,17 @@ describe("custom depth tests", ()=> {
     let override:Object
 
     before(async () => {
-        // const estimateGasPrice = await provider.getGasPrice();
-        // const gasPrice = estimateGasPrice.mul(3).div(2);
-        // override = { gasPrice, gasLimit:3000000 };
-        // let TestC = await ethers.getContractFactory("TestC");
-        // for(let i=0;i<length;i++){
-        //     let testC = await TestC.deploy();
-        //     await testC.deployed();
-        //     addrs.push(testC.address);
-        //     passes.push(true);
-        // }
-        // passes[0] = false;
+        const estimateGasPrice = await provider.getGasPrice();
+        const gasPrice = estimateGasPrice.mul(3).div(2);
+        override = { gasPrice, gasLimit:3000000 };
+        let TestC = await ethers.getContractFactory("TestC");
+        for(let i=0;i<length;i++){
+            let testC = await TestC.deploy();
+            await testC.deployed();
+            addrs.push(testC.address);
+            passes.push(true);
+        }
+        passes[0] = false;
     })
 
     async function testCase(addrs:Array<string>, passes:Array<boolean>){
@@ -37,14 +37,14 @@ describe("custom depth tests", ()=> {
     }
 
     it("run depth test", async()=> {
-        // await testCase(addrs, passes)
-        // for(let i = addrs.length - 1;i >= 0;i--){
-        //     const contract = await ethers.getContractAt('TestC', addrs[i]);
-        //     if(i == 0){
-        //         expect((await contract.value()).toString()).to.eq('1')
-        //     }else{
-        //         expect((await contract.value()).toString()).to.eq('2')
-        //     }
-        // }
+        await testCase(addrs, passes)
+        for(let i = addrs.length - 1;i >= 0;i--){
+            const contract = await ethers.getContractAt('TestC', addrs[i]);
+            if(i == 0){
+                expect((await contract.value()).toString()).to.eq('1')
+            }else{
+                expect((await contract.value()).toString()).to.eq('2')
+            }
+        }
     })
 });
