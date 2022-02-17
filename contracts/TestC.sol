@@ -5,7 +5,7 @@ import './interface/ITestB.sol';
 
 contract TestC {
 
-    uint256 public aValue = 1;
+    uint256 public value = 1;
 
     address[] public newAddrs;
 
@@ -15,15 +15,15 @@ contract TestC {
 
     }
 
-    function doTest(address[] calldata addrs,  bool[] calldata passes, uint256 value) external {
-        aValue += value;
+    function doTest(address[] calldata addrs,  bool[] calldata passes, uint256 newValue) external {
+        value += newValue;
         bool pass = passes[passes.length - 1];
         if(addrs.length > 1){
             newAddrs = addrs;
             newPasses = passes;
             newAddrs.pop();
             newPasses.pop();
-            (bool success, bytes memory data) = newAddrs[newAddrs.length - 1].call(abi.encodeWithSelector(0x8c7fdd66, newAddrs, newPasses, value));
+            (bool success, bytes memory data) = newAddrs[newAddrs.length - 1].call(abi.encodeWithSelector(0x8c7fdd66, newAddrs, newPasses, newValue));
         }
         require(pass, 'failed');
     }

@@ -5,7 +5,7 @@ import './interface/ITestB.sol';
 
 contract TestA {
 
-    uint256 public aValue = 8;
+    uint256 public aValue = 1;
 
     constructor() public {
 

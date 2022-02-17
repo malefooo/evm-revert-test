@@ -28,7 +28,7 @@ async function main() {
     async function testCase(a, b){
         try{
             // test
-            let tx  = await testA.doTest(testB.address, 9, a, b, override);
+            let tx  = await testA.doTest(testB.address, 1, a, b, override);
             await wait(ethers, tx.hash, 'test');
         }catch(e){
             console.log(a,b,e)

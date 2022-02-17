@@ -12,7 +12,7 @@ async function main() {
     const override = { gasPrice, gasLimit:3000000 };
 
     console.log(`====================Do your bussiness =======================`)
-    let length = 5;
+    let length = 3;
     let addrs = [];
     let passes = [];
     // testC
@@ -42,9 +42,9 @@ async function testCase(addrs, passes, override) {
     for(let i=addrs.length - 1;i>=0;i--){
         // get
         const contract = await ethers.getContractAt('TestC', addrs[i]);
-        let aValue = await contract.aValue();
+        let value = await contract.value();
         console.log('addr is:', addrs[i]);
-        console.log('aValue is:', aValue.toString());
+        console.log('value is:', value.toString());
     }
 }
 

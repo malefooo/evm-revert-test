@@ -18,3 +18,8 @@ npx hardhat run scripts/test.ts --network [your config]
 ```
 npx hardhat run scripts/new_test.ts --network [your config]
 ```
+
+### 单元测试（测试结果更直观，但建议仅本地节点使用, 网路节点会引起超时错误）
+```
+npx hardhat test --network [your local config]
+```

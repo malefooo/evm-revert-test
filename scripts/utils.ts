@@ -44,9 +44,9 @@ export async function wait(
   confirmation: number = 1
 ): Promise<void> {
   if (desc) {
-    console.log(`Waiting tx ${hash}. action = ${desc}`);
+    // console.log(`Waiting tx ${hash}. action = ${desc}`);
   } else {
-    console.log(`Waiting tx ${hash}`);
+    // console.log(`Waiting tx ${hash}`);
   }
   await ethers.provider.waitForTransaction(hash, confirmation);
 }
