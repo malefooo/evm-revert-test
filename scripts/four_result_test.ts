@@ -1,6 +1,6 @@
 import { network, ethers } from 'hardhat';
 import { Contract, ContractFactory, BigNumber, utils } from 'ethers';
-import { encodeParameters, wait } from './utils';
+import { encodeParameters, wait , sleep} from './utils';
 
 async function main() {
     const { provider } = ethers;
@@ -29,6 +29,7 @@ async function main() {
         try{
             // test
             let tx  = await testA.doTest(testB.address, 1, a, b, override);
+            console.log("hash: ", tx.hash)
             await wait(ethers, tx.hash, 'test');
         }catch(e){
             console.log(a,b,e)

@@ -42,11 +42,17 @@ export async function wait(
   hash: string,
   desc?: string,
   confirmation: number = 1
-): Promise<void> {
+): Promise<any> {
   if (desc) {
     // console.log(`Waiting tx ${hash}. action = ${desc}`);
   } else {
     // console.log(`Waiting tx ${hash}`);
   }
-  await ethers.provider.waitForTransaction(hash, confirmation);
+  await ethers.provider.waitForTransaction(hash, confirmation)
+}
+
+export function sleep(ms) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  })
 }
